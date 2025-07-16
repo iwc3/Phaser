@@ -1,16 +1,22 @@
 export class Player extends Phaser.Physics.Arcade.Sprite {
+    
+    // Construction for Player Class ####
     constructor(scene, x, y) {
-        super(scene, x, y, 'dude');
 
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
+        super(scene, x, y, 'dude'); // Adopts methods from Phaser arcade sprite class
+        
+        scene.add.existing(this); // Add player to the scene
+        scene.physics.add.existing(this); // Add physics to the player
 
-        this.setBounce(0.2);
-        this.setCollideWorldBounds(true);
-        this.initAnimations();
+        
+        this.setBounce(0.2); // Player bounces on impact
+        this.setCollideWorldBounds(true); // Prevents player from leaving playing area
+        this.initAnimations(); // Initiates animations
+        
 
     }
 
+    // Animations for Player class ####
     initAnimations() {
         this.anims.create({
             key: 'left',
@@ -53,6 +59,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
             this.setVelocityY(-500);
         }
     }
+    // ##################################
 
 
 
